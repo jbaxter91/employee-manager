@@ -2,15 +2,6 @@ const inquirer = require("inquirer");
 const mysql = require("mysql");
 const cTable = require("console.table");
 
-const cms_operations = [
-  "add department",
-  "add role",
-  "add employee",
-  "view departments",
-  "view roles",
-  "view employees",
-  "delete",
-];
 
 const database = mysql.createConnection({
   host: "localhost",
