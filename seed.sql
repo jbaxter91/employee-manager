@@ -1,69 +1,35 @@
--- Drops the company_db if it exists currently --
-DROP DATABASE IF EXISTS company_db;
--- Creates the "company_db" database --
-CREATE DATABASE company_db;
+USE company_DB;
 
--- Makes it so all of the following code will affect company_db --
-USE company_db;
-
--- Creates the table "department" within animals_db --
-CREATE TABLE department (
-  -- Makes an int for the id that auto incriments
-  id INT NOT NULL AUTO_INCREMENT,
-  -- Makes a string column called "name" which cannot contain null --
-  name VARCHAR(30) NOT NULL,
-  -- sets the id as the primary key
-  PRIMARY KEY(id)
-  
-);
-
-CREATE TABLE roles (
-  -- Makes an int for the id that auto incriments
-  id INT NOT NULL AUTO_INCREMENT,
-  title varchar(30) not null,
-  salary decimal,
-  department_id int,
-  PRIMARY KEY(id),
-  FOREIGN KEY (department_id) REFERENCES department(id)
-);
-
-CREATE TABLE manager (
-  id INT NOT NULL AUTO_INCREMENT,
-  employee_id int,
-  PRIMARY KEY(id)
-);
-
-CREATE TABLE employee (
-  id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(30),
-  last_name VARCHAR(30),
-  role_id int,
-  manager_id int,
-  PRIMARY KEY(id),
-  FOREIGN KEY (role_id) REFERENCES roles(id),
-  FOREIGN KEY (manager_id) REFERENCES manager(id)
-);
-
-ALTER TABLE manager
-ADD FOREIGN KEY (employee_id) REFERENCES employee(id);
-
-
-
--- Creates new rows containing data in all named columns --
-INSERT INTO department (name)
-VALUES ('Sales');
-
-INSERT INTO department (name)
-VALUES ('Engineering');
-
-INSERT INTO department (name)
-VALUES ('Finance');
-
-INSERT INTO department (name)
-VALUES ('Legal');
+INSERT INTO departments (name)
+VALUES
+('Sales'), 
+('Management'),
+('Accounting'),
+('Reception'),
+('Legal'),
+('Logistics'),
+('Security'),
+('Human Resources');
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ('Lawyer', 50000, 4);
+VALUES
+('Salesman', 30000, 1),
+('Manager', 85000, 2),
+('Accountant', 21000, 3),
+('Reception', 21500, 4),
+('Quality Assurer', 66666, 5),
+('Truck Driver', 19900, 6),
+('Mall Cop', 35000, 7),
+('Kevin - The HR GOD', 428100, 8);
 
-select * from roles
-
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES 
+('Carly', 'Leblanc', 1, 2),
+('Alanah', 'Cochran', 2,null),
+('King', 'Combs', 3,2),
+('Alyssa', 'Mccarty', 4,2),
+('Boris', 'Parker', 5,2),
+('Charlotte', 'Bradshaw', 6,2),
+('Warren', 'Mcdowell', 7,2),
+('Amos ', 'Kevbob', 8, 2),
+('Kevin', 'Kevbob', 8,2);
