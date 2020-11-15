@@ -1,5 +1,8 @@
 # Employee Management System ![MIT License](https://img.shields.io/badge/License-MIT-Green)
 
+![employee-manager-2](https://user-images.githubusercontent.com/67088604/99162649-ddacf300-26b4-11eb-8e8e-996b130d45c7.png)
+![employee-manager](https://user-images.githubusercontent.com/67088604/99162650-de458980-26b4-11eb-98d1-6906c4867690.png)
+
 ## Description
 
 Simple CLI Employee management system using mysql
